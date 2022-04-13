@@ -8,9 +8,8 @@ ENV PATH="${JAVA_HOME}/bin:${PATH}"
 
 RUN apt-get update \
     && apt-get install -y --no-install-recommends wget ca-certificates gnupg2 \
-    && rm -rf /var/lib/apt/lists/*
-
-RUN wget -qO sapmachine.tar.gz $SAPMACHINE_AARCH64_LINK &&\
+    && rm -rf /var/lib/apt/lists/* &&\
+    wget -qO sapmachine.tar.gz $SAPMACHINE_AARCH64_LINK &&\
     tar zxf sapmachine.tar.gz &&\
     mkdir -p /usr/lib/jvm/ &&\
     mv sapmachine-jdk-${SAPMACHINE_VERSION} /usr/lib/jvm/sapmachine-11 &&\
