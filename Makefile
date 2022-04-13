@@ -22,7 +22,7 @@ build:
 shell:
 	docker run --rm -it ${ACCOUNT}/${REPOSITORY}:${MINOR_VERSION} /bin/bash
 
-publish:
+publish: build
 	docker login
 	docker push ${ACCOUNT}/${REPOSITORY}:${MAJOR_VERSION}
 	docker push ${ACCOUNT}/${REPOSITORY}:${MINOR_VERSION}
