@@ -18,7 +18,10 @@ help:
 
 build:
 	docker build -t ${ACCOUNT}/${REPOSITORY}:${MAJOR_VERSION} -t ${ACCOUNT}/${REPOSITORY}:${MINOR_VERSION} .
-	
+
+shell:
+	docker run --rm -it ${ACCOUNT}/${REPOSITORY}:${MINOR_VERSION} /bin/bash
+
 publish:
 	docker login
 	docker push ${ACCOUNT}/${REPOSITORY}:${MAJOR_VERSION}
